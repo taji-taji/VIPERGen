@@ -10,15 +10,19 @@ extension Executor {
         var vipergenfilePath: String?
 
         mutating func run() throws {
-            print("init command.")
             // TODO: VIPERGenfile の有無チェック
             print(FileManager.default.viperGenfileExists(atDirectory: vipergenfilePath ?? "."))
 
-            print("Enter your Company Name: ", terminator: "")
-            guard let companyName = readLine() else {
-                return
-            }
-            print(companyName)
+            let companyName = ask("Enter your Company Name: ") ?? ""
+            let projectName = ask("Enter your Project Name: ") ?? ""
+            var xcodeprojPath = ""
+            while xcodeprojPath.isEmpty {
+                xcodeprojPath = ask("Enter path to .xcodeproj file: ") ?? ""
+            }  
+            let prefix = ask("Enter your project prefix (if any): ") ?? ""
+            let projectTarget = ask("Enter project target: ") ?? ""
+            let projectFilePath = ask("Enter path to project file: ") ?? ""
+            let projectGroupPath = projectFilePath
         }
     }
 }
