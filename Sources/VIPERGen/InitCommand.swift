@@ -23,6 +23,9 @@ extension Executor {
             let projectTarget = ask("Enter project target: ") ?? ""
             let projectFilePath = ask("Enter path to project file: ") ?? ""
             let projectGroupPath = projectFilePath
+
+            let VIPERGenfileGenerator = try VIPERGenfileGenerator(gybPath: "path/to/gyb", VIPERGenfilePath: ".")
+            try VIPERGenfileGenerator.generate(companyName: companyName)
         }
     }
 }
