@@ -13,3 +13,7 @@ public func shell(_ args: String...) -> Int32 {
     task.waitUntilExit()
     return task.terminationStatus
 }
+
+public func shell(_ args: [String]) -> Int32 {
+    shell(args)
+}
